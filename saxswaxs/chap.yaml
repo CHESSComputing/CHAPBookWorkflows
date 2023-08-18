@@ -1,0 +1,7 @@
+name: SAXSWAX
+type: saxswaxs workflow
+group: beamline-X
+version: v0.0.1
+description: bla-bla-bla
+reference: http://some.site/tomo
+config: pipeline.yaml
