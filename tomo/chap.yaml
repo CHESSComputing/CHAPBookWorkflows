@@ -1,5 +1,5 @@
-name: SAXSWAXS
-type: saxswaxs workflow
+name: TOMO
+type: tomo workflow
 group: beamline-X
 version: v0.0.1
 description: bla-bla-bla
