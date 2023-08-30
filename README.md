@@ -21,3 +21,17 @@ This example only contains subset of available fields defined in
 - `config` parameter from `chap.yaml` should provide proper CHAP configuration
 pipeline file, in aforementioned case it is `pipeline.yaml`
 - the workflow area may contain all necessary files used by given workflow
+- `conda.yml` should provide all necessary dependencies and define
+workflow conda environment, i.e. it should have the same name as the directory,
+e.g.
+```
+cat tomo/conda.yml
+name: tomo
+channels:
+  - astra-toolbox
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.9
+  ...
+```
