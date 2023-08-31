@@ -1,0 +1,7 @@
+name: basic
+type: basic workflow
+group: beamline-X
+version: v0.0.1
+description: bla-bla-bla
+reference: https://github.com/CHESSComputing/CHAPBookWorkflows/tree/main/basic
+config: pipeline.yaml
