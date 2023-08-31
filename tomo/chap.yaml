@@ -3,5 +3,5 @@ type: tomo workflow
 group: beamline-X
 version: v0.0.1
 description: bla-bla-bla
-reference: http://some.site/tomo
+reference: https://github.com/CHESSComputing/CHAPBookWorkflows/tree/main/tomo
 config: pipeline.yaml
