@@ -1,0 +1,43 @@
+config:
+  root: .
+  outputdir: output
+  interactive: false
+  log_level: DEBUG
+  profile: false
+
+pipeline:
+
+  # Calibrate detector
+  - common.YAMLReader:
+      filename: ceria_calibration.yaml
+      schema: edd.models.MCACeriaCalibrationConfig
+  - edd.MCACeriaCalibrationProcessor:
+      save_figures: true
+  - common.YAMLWriter:
+      filename: ceria_calibrated.yaml
+      force_overwrite: true
+
+  # Measure diffraction volume length
+  - common.YAMLReader:
+      filename: dvl.yaml
+      schema: edd.models.DiffractionVolumeLengthConfig
+  - edd.DiffractionVolumeLengthProcessor:
+      save_figures: true
+  - common.YAMLWriter:
+      filename: dvl_measured.yaml
+      force_overwrite: true
+
+  # Get microstrain maps
+  - pipeline.MultiplePipelineItem:
+      items:
+        - common.YAMLReader:
+            filename: output/ceria_calibrated.yaml
+            schema: edd.models.MCACeriaCalibrationConfig
+        - common.YAMLReader:
+            filename: strain_analysis.yaml
+            schema: edd.models.StrainAnalysisConfig
+  - edd.StrainAnalysisProcessor:
+      save_figures: true
+  - common.NexusWriter:
+      filename: strain.nxs
+      force_overwrite: true

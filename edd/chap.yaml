@@ -1,0 +1,7 @@
+name: EDD
+type: EDD workflow
+group: ID1A3, ID3A
+version: v0.0.1
+description: Standalone workflow for processing Energy Dispersive Diffraction (EDD) data. First, calibrate the 2-theta angle for each MCA element using a frame of data taken on a ceria sample. Then measure the length of the diffraction volume using a steel foil raster scan. Finally, compute the microstrain at each point on a sample map.
+reference: https://github.com/CHESSComputing/CHAPBookWorkflows/tree/main/edd
+config: pipeline.yaml
